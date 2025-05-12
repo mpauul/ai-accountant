@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {CommonModule, CurrencyPipe} from "@angular/common";
 import {toSignal} from "@angular/core/rxjs-interop";
+import { DocsLoadPanelComponent } from './components/docs-load-panel/docs-load-panel.component';
+import { TransactionsPanelComponent } from './components/transactions-panel/transactions-panel.component';
 
 
 export type Product = { 
@@ -15,7 +17,11 @@ export type Product = {
 // Angular 17+ automatically treats components as standalone if they use imports 
 @Component({
   selector: 'app-dashboard',
-  imports: [CurrencyPipe, CommonModule],
+  imports: [CurrencyPipe, CommonModule,
+
+    TransactionsPanelComponent,
+    DocsLoadPanelComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

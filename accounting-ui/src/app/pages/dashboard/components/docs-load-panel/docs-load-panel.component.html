@@ -1,1 +1,91 @@
-<p>docs-load-panel works!</p>
+
+<style>
+    .chart-box {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background: #f9f9f9; */
+        border-radius: 8px;
+        padding: 2rem;
+        flex: 1;
+        
+    }
+
+</style>
+<p-toast></p-toast>
+<p-tabView>
+    <p-tabPanel header="Load Bank Statements">
+        <div class="chart-box">
+            <p-fileUpload 
+                mode="basic"
+                name="bank-statements[]" 
+                accept=".pdf,.csv,.xlsx" 
+                maxFileSize="100000000"
+                chooseIcon="pi pi-upload"
+                chooseLabel="Add Bank Statements"
+                (onUpload)="onUpload($event)"
+                (onError)="onError($event)"
+                [auto]="true"
+                [multiple]="true"
+                [showUploadButton]="false"
+                [showCancelButton]="false"
+            >
+                <ng-template #empty>
+                    <div>Drag and drop files to here to upload.</div>
+                </ng-template>
+                <ng-template #content>
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                    </ul>
+                </ng-template>
+
+            </p-fileUpload>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Load Invoices">
+        <div class="chart-box">
+            <!-- <p-fileUpload 
+                mode="basic" 
+                name="invoices[]" 
+                accept=".pdf,.csv,.xlsx" 
+                maxFileSize="100000000"
+                chooseLabel="Add Invoices"
+                (onUpload)="onUpload($event)"
+                (onError)="onError($event)"
+                [auto]="true"
+                [showUploadButton]="false"
+                [showCancelButton]="false">
+            </p-fileUpload> -->
+            <div class="card">
+                <p-toast />
+                <p-fileupload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced">
+                    <ng-template #empty>
+                        <div>Drag and drop files to here to upload.</div>
+                    </ng-template>
+                    <ng-template #content>
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                        </ul>
+                    </ng-template>
+                </p-fileupload>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Load Expenses">
+        <div class="chart-box">
+            <p-fileUpload 
+                mode="basic" 
+                name="expenses[]" 
+                accept=".pdf,.csv,.xlsx" 
+                maxFileSize="1000000"
+                chooseLabel="Add Expenses"
+                (onUpload)="onUpload($event)"
+                (onError)="onError($event)"
+                [auto]="true"
+                [showUploadButton]="false"
+                [showCancelButton]="false">
+            </p-fileUpload>
+        </div>
+    </p-tabPanel>
+</p-tabView>

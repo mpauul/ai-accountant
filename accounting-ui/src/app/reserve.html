@@ -1,0 +1,97 @@
+<div class="dashboard-container">
+    <aside class="sidebar">
+  
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <h1>Payment</h1>
+        <button class="more-action">More Action</button>
+      </header>
+      <section class="stats">
+        <div class="stat-card">
+          <div class="stat-title">Total Transaction</div>
+          <div class="stat-value">$55,580</div>
+          <div class="stat-change up">▲ 3.9% <span>Last month</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Total Sales</div>
+          <div class="stat-value">$40,580</div>
+          <div class="stat-change up">▲ 2.1% <span>Last month</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Total Payment</div>
+          <div class="stat-value">$15,580</div>
+          <div class="stat-change down">▼ 1.9% <span>Last month</span></div>
+        </div>
+      </section>
+      <section class="dashboard-grid">
+        <div class="invoice-card">
+          <div class="invoice-header">
+            <span>All Invoice</span>
+            <input type="text" placeholder="Search" class="search" />
+            <button class="filter-btn">Filter</button>
+            <button class="request-btn">+ Request Payment</button>
+          </div>
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td><span class="company-logo amazon"></span>Amazon</td>
+                <td>finace"&#64;"amazon.com</td>
+                <td><span class="status unpaid">Unpaid</span></td>
+                <td>$15,254</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td><span class="company-logo hp"></span>HP</td>
+                <td>support"&#64;"hp.com</td>
+                <td><span class="status paid">Paid</span></td>
+                <td>$8,254</td>
+              </tr>
+              <!-- Add more rows as needed, following the pattern above -->
+            </tbody>
+          </table>
+        </div>
+        <div class="side-cards">
+          <div class="monthly-transaction">
+            <div class="tabs">
+              <button class="active">Total Transaction</button>
+              <button>Total Sales</button>
+              <button>Total Payment</button>
+              <select class="dropdown">
+                <option>Monthly</option>
+              </select>
+            </div>
+            <div class="monthly-value">$55,580</div>
+            <div class="monthly-desc">This month day sale volume is 4.6% large than last month</div>
+            <div class="monthly-chart"></div>
+          </div>
+          <div class="transaction-view">
+            <div class="transaction-view-title">Transaction View</div>
+            <div class="transaction-view-value">$55,580</div>
+            <div class="transaction-gauge">
+              <span class="gauge transaction"></span>
+              <span class="gauge sales"></span>
+              <span class="gauge payment"></span>
+            </div>
+            <div class="transaction-view-desc">$55,580<br><span>Up 4.6% Growth</span></div>
+            <div class="gauge-labels">
+              <span class="dot transaction"></span> Transaction
+              <span class="dot sales"></span> Sales
+              <span class="dot payment"></span> Payment
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- <router-outlet></router-outlet> -->
+  </div>

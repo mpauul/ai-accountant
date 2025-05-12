@@ -1,6 +1,71 @@
-<p>dashboard works!</p>
 
-
-<div *ngFor="let product of products">
-    {{product.title}} - {{product.price | currency}}
-</div>
+<div class="payment-dashboard">
+    <!-- Top Summary Cards -->
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total Transaction</h3>
+        <p class="amount">$55,580</p>
+        <p class="change up">↑ 3.9% Last month</p>
+      </div>
+      <div class="card">
+        <h3>Total Sales</h3>
+        <p class="amount">$40,580</p>
+        <p class="change up">↑ 2.1% Last month</p>
+      </div>
+      <div class="card">
+        <h3>Total Payment</h3>
+        <p class="amount">$15,580</p>
+        <p class="change down">↓ 1.9% Last month</p>
+      </div>
+    </div>
+  
+    <!-- Main content section -->
+    <div class="main-content">
+      <!-- Invoice table -->
+      <div class="invoice-section">
+        <div class="invoice-header">
+          <h3>All Invoice</h3>
+          <div class="actions">
+            <input type="text" placeholder="Search" />
+            <button>Filter</button>
+            <button class="primary">+ Request Payment</button>
+          </div>
+        </div>
+        <div class="invoice-table-wrapper">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Amazon</td>
+                <td>financeamazon.com</td>
+                <td class="unpaid">Unpaid</td>
+                <td>$15,254</td>
+              </tr>
+              <!-- Add more rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <!-- Charts -->
+      <div class="charts-section">
+        <div class="chart-card">
+          <h4>Load documents</h4>
+          <!-- <div class="chart-box">[Chart Placeholder]</div> -->
+          <app-docs-load-panel></app-docs-load-panel>
+        </div>
+        <div class="chart-card">
+          <h4>Transaction View</h4>
+          <div class="chart-box">[Chart Placeholder]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -5,7 +5,7 @@ import { ClientManagerComponent } from './pages/client-manager/client-manager.co
 export const routes: Routes = [
     {
       path: '',
-      component: ClientManagerComponent,
+      component: DashboardComponent,
     },
     {
       path: 'dashboard',
