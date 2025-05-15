@@ -6,6 +6,11 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
 
+
+interface UploadEvent {
+  originalEvent: Event;
+  files: File[];
+}
 @Component({
   selector: 'app-docs-load-panel',
   imports: [
@@ -25,13 +30,13 @@ export class DocsLoadPanelComponent {
   constructor(private messageService: MessageService) {}
 
   onUpload(event: any) {
-    console.log(event)
-    for(let file of event.files) {
-      this.uploadedFiles.push(file);
-    }
+      for(let file of event.files) {
+          this.uploadedFiles.push(file);
+      }
 
-    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+      this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
+
 
   onError(event: any) {
     this.messageService.add({severity: 'error', summary: 'Error', detail: 'File upload failed'});

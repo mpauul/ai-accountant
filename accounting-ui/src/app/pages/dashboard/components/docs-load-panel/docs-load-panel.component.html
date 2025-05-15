@@ -8,8 +8,10 @@
         /* background: #f9f9f9; */
         border-radius: 8px;
         padding: 2rem;
+        height: 100%; /* Added explicit height */
+        min-height: 0; /* Added to ensure flex child can shrink */
         flex: 1;
-        
+        overflow-y: auto;
     }
 
 </style>
@@ -17,20 +19,14 @@
 <p-tabView>
     <p-tabPanel header="Load Bank Statements">
         <div class="chart-box">
-            <p-fileUpload 
-                mode="basic"
-                name="bank-statements[]" 
-                accept=".pdf,.csv,.xlsx" 
-                maxFileSize="100000000"
-                chooseIcon="pi pi-upload"
-                chooseLabel="Add Bank Statements"
-                (onUpload)="onUpload($event)"
-                (onError)="onError($event)"
-                [auto]="true"
-                [multiple]="true"
-                [showUploadButton]="false"
-                [showCancelButton]="false"
-            >
+            <p-fileupload 
+            name="demo[]" 
+            url="https://www.primefaces.org/cdn/api/upload.php" 
+            (onUpload)="onUpload($event)" 
+            [multiple]="true" 
+            accept=".pdf,.csv,.xlsx,image/*" 
+            maxFileSize="100000000" 
+            mode="advanced">
                 <ng-template #empty>
                     <div>Drag and drop files to here to upload.</div>
                 </ng-template>
@@ -39,8 +35,7 @@
                         <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
                     </ul>
                 </ng-template>
-
-            </p-fileUpload>
+            </p-fileupload>
         </div>
     </p-tabPanel>
     <p-tabPanel header="Load Invoices">
@@ -63,11 +58,11 @@
                     <ng-template #empty>
                         <div>Drag and drop files to here to upload.</div>
                     </ng-template>
-                    <ng-template #content>
+                    <!-- <ng-template #content>
                         <ul *ngIf="uploadedFiles.length">
                             <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
                         </ul>
-                    </ng-template>
+                    </ng-template> -->
                 </p-fileupload>
             </div>
         </div>

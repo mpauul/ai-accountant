@@ -1,1 +1,35 @@
-<p>transactions-panel works!</p>
+<!-- <p>transactions-panel works!</p> -->
+<p-table 
+[columns]="cols" 
+[value]="txs"     
+[paginator]="true"
+[rows]="10"
+[tableStyle]="{ 'min-width': '50rem' }"
+[rowsPerPageOptions]="[5, 10, 15, 20]"
+selectionMode="single" 
+[(selection)]="selectedTransaction"
+[metaKeySelection]="false"
+dataKey="reference"
+(onRowSelect)="onRowSelect($event)"
+>
+    <ng-template #header let-columns>
+        <tr>
+            <th *ngFor="let col of cols">
+                {{ col.header }}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-rowData>
+        <tr [pSelectableRow]="rowData">
+            <td>{{ rowData.reference }}</td>
+            <td>{{ rowData.description}}</td>
+            <td>
+                <p-badge [ngStyle]="{'font-size': '10px'}" [value]="rowData.amount" [severity]="statusSeverity(rowData.amount)" />
+            </td>
+            <td>{{ rowData.currency }}</td>
+            <td>{{ rowData.account_number }}</td>
+            <td>{{ rowData.transaction_date }}</td>
+
+        </tr>
+    </ng-template>
+</p-table>
