@@ -1,0 +1,26 @@
+<div style="display: flex; width: 100%; height: 100%;">
+    <div style="flex: 1; padding: 1rem;">
+      <app-docs-load-panel></app-docs-load-panel>
+    </div>
+  
+    <!-- Vertical line divider -->
+    <div style="width: 1px; background-color: #ccc;"></div>
+  
+    <div style="flex: 1; padding: 1rem;">
+      <!-- <p>docs-status works!</p> -->
+      <!-- <div style="background-color: red;height: 100%;"></div> -->
+    </div>
+</div>
+
+
+<!-- flex: 1 makes each side take equal width.
+
+width: 1px; background-color: black; creates the vertical line.
+
+This layout won't overflow because widths are managed via flex -->
+
+
+<!-- In flexbox, height (like width) is not automatically inherited by child elements unless you explicitly:
+- Set the parent's height
+- And ensure the child is allowed to grow (flex-grow, height: 100%, etc.) 
+-->

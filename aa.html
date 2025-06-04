@@ -1,0 +1,161 @@
+<style>
+    body{
+      margin: 0;
+      height: 100vh;
+    }
+    .main{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      background: #ededed;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .sidebar {
+      background: #111;
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0;
+      justify-content: space-between;
+    }
+  
+    .main-content{
+      display: flex;
+      flex: 1;
+      /* padding: 1.5rem; */
+      background: #f7f7f7;
+      flex-direction: column;
+      width: calc(100% - 80px);
+      height: 100%;
+    }
+  
+    .header {
+      height: 2.5rem;
+      padding: 1rem;
+      width: calc(100%-2rem); /*computed from above 2*1rem*/
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .more-action {
+      background: #ff5a1f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  
+  </style>
+  <div class="main">
+    <div class="sidebar"></div>
+    <div class="main-content">
+      <header class="header">
+        <h1>Accounting</h1>
+        <button class="more-action">More Action</button>
+      </header>
+      <!-- <div class="stats">
+        <div class="stat-card">
+          <div class="stat-title">Total Transactions</div>
+          <div class="stat-value">$55,580</div>
+          <div class="stat-change up">▲ 3.9% <span>Last month</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Total Sales</div>
+          <div class="stat-value">$40,580</div>
+          <div class="stat-change up">▲ 2.1% <span>Last month</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Total Payment</div>
+          <div class="stat-value">$15,580</div>
+          <div class="stat-change down">▼ 1.9% <span>Last month</span></div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+
+
+
+
+  <p-tabView>
+    <p-tabPanel header="Load Bank Statements">
+        <div class="chart-box">
+            <p-fileupload 
+            name="demo[]" 
+            url="https://www.primefaces.org/cdn/api/upload.php" 
+            (onUpload)="onUpload($event)" 
+            [multiple]="true" 
+            accept=".pdf,.csv,.xlsx,image/*" 
+            maxFileSize="100000000" 
+            mode="advanced">
+                <ng-template #empty>
+                    <div>Drag and drop files to here to upload.</div>
+                </ng-template>
+                <ng-template #content>
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                    </ul>
+                </ng-template>
+            </p-fileupload>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Load Invoices">
+        <div class="chart-box">
+            <!-- <p-fileUpload 
+                mode="basic" 
+                name="invoices[]" 
+                accept=".pdf,.csv,.xlsx" 
+                maxFileSize="100000000"
+                chooseLabel="Add Invoices"
+                (onUpload)="onUpload($event)"
+                (onError)="onError($event)"
+                [auto]="true"
+                [showUploadButton]="false"
+                [showCancelButton]="false">
+            </p-fileUpload> -->
+            <div class="card">
+                <p-toast />
+                <p-fileupload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" maxFileSize="1000000" mode="advanced">
+                    <ng-template #empty>
+                        <div>Drag and drop files to here to upload.</div>
+                    </ng-template>
+                    <!-- <ng-template #content>
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                        </ul>
+                    </ng-template> -->
+                </p-fileupload>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Load Expenses">
+        <div class="chart-box">
+            <p-fileUpload 
+                mode="basic" 
+                name="expenses[]" 
+                accept=".pdf,.csv,.xlsx" 
+                maxFileSize="1000000"
+                chooseLabel="Add Expenses"
+                (onUpload)="onUpload($event)"
+                (onError)="onError($event)"
+                [auto]="true"
+                [showUploadButton]="false"
+                [showCancelButton]="false">
+            </p-fileUpload>
+        </div>
+    </p-tabPanel>
+</p-tabView>

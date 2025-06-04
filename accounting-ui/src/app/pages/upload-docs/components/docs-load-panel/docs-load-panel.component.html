@@ -1,0 +1,79 @@
+<!-- <div
+  class="upload-area"
+  (drop)="onFileDropped($event)"
+  (dragover)="onDragOver($event)"
+  (dragenter)="($event.preventDefault())"
+>
+  <p>Drag & drop files here</p>
+  <p>or</p>
+  <label class="choose-btn">
+    Choose File
+    <input type="file" (change)="onFileSelected($event)" multiple  hidden />
+  </label>
+</div>
+
+<div *ngIf="selectedFiles.length > 0" class="file-list">
+  <p><strong>Selected Files:</strong></p>
+  <ul>
+    <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
+  </ul>
+  <button (click)="clearFiles()">Clear</button>
+</div> -->
+<div style="background-color: yellow;height: 100%;display: flex;flex-direction: column;">
+    <div
+        class="upload-area"
+        (drop)="onFileDropped($event)"
+        (dragover)="onDragOver($event)"
+        (dragenter)="($event.preventDefault())"
+    >
+        <p>Drag & drop files here</p>
+        <p>or</p>
+        <label class="choose-btn">
+            Choose File
+            <input type="file" (change)="onFileSelected($event)" multiple  hidden />
+        </label>
+    </div>
+
+    <!-- <div style="background-color: brown;flex: 1;"  *ngIf="selectedFiles.length > 0" class="file-list"> -->
+
+    <div style="background-color: brown;flex: 1;display: flex;">
+        <!-- <p><strong>Selected Files:</strong></p>
+        <ul>
+            <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
+        </ul>
+        <button (click)="clearFiles()">Clear</button> -->
+        <div class="card" style="flex: 1;">
+            <p-table [value]="products" [tableStyle]="{'max-height': '2rem'}">
+                <ng-template #header>
+                    <tr>
+                        <!-- <th pSortableColumn="code" style="width:20%">
+                            Code <p-sortIcon field="code" />
+                        </th> -->
+                        <th style="width:75%" pSortableColumn="name">
+                            File Name <p-sortIcon field="name" />
+                        </th>
+                        <!-- <th pSortableColumn="category" style="width:20%">
+                            Category <p-sortIcon field="category" />
+                        </th> -->
+                        <th style="width:25%" pSortableColumn="quantity" >
+                            Size <p-sortIcon field="quantity" />
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-product>
+                    <tr>
+                        <!-- <td>{{ product.code }}</td> -->
+                        <td>{{ product.name }} {{ product.name }} {{ product.name }}</td>
+                        <!-- <td>{{ product.category }}</td> -->
+                        <td>{{ product.quantity }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div style="background-color: aqua;height: 3rem;">
+
+    </div>
+
+</div>

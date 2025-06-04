@@ -11,9 +11,16 @@ export interface Txs{
     transactions: Transaction[]
 }
 
-export interface DocumentItem{
+export interface Document{
     documentId: string;
-    documentType: string;
     status: string;
-    content: Txs[];
+}
+
+export interface DocumentItem extends Document{
+    documentType: string;
+    content: Txs;
+}
+
+export interface DocumentStatus extends Document{
+    isExisting: boolean;
 }
